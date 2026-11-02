@@ -3,7 +3,7 @@
 ## Requirement ID Coverage
 
 - [x] Toutes les exigences utilisent le format `REQ-XXX`.
-- [x] Les identifiants sont uniques et séquentiels de `REQ-001` à `REQ-026`.
+- [x] Les identifiants sont uniques et séquentiels de `REQ-001` à `REQ-028`.
 
 ## Testability
 
@@ -16,7 +16,7 @@
 - [x] Le périmètre MVP et le hors périmètre sont explicités.
 - [x] Les acteurs, scénarios, cas limites et entités sont documentés.
 - [x] Les règles d'unicité, de confidentialité et de restriction de domaine sont couvertes.
-- [x] Les hypothèses et questions à clarifier sont isolées.
+- [x] Les hypothèses et décisions produit sont isolées.
 
 ## Privacy and Security
 
@@ -27,4 +27,4 @@
 ## Readiness
 
 - [x] La spécification est prête pour une phase de planification technique.
-- [ ] Les deux décisions marquées `[NEEDS CLARIFICATION]` doivent être confirmées avant la mise en production.
+- [x] Les décisions relatives au lien de résultats, aux durées configurables et à la rétention sont confirmées.
