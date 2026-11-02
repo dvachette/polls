@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      PORT: 3000
+      FRONTEND_ORIGIN: http://localhost:8080
+      DATABASE_URL: postgresql://polls:polls@postgres:5432/polls
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      backend:
+        condition: service_started
+    ports:
+      - "8080:80"
+
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: polls
+      POSTGRES_USER: polls
+      POSTGRES_PASSWORD: polls
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U polls -d polls"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
